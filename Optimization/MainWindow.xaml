@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Optimization" Height="450" Width="800">
 
-    <TabControl HorizontalAlignment="Left" VerticalAlignment="Top">
+    <TabControl Margin="0,0,2,-1">
         <TabItem Header="Бинарное дерево">
         </TabItem>
         <TabItem Header="Взвешаные деревья">
