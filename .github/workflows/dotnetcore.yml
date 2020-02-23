@@ -8,10 +8,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: Optimization.sln
+    - uses: actions/checkout@v2
     - name: Setup .NET Core
-      uses: Optimization.sln
+      uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 2.2.108
+        dotnet-version: 4.7.2
     - name: Build with dotnet
       run: dotnet build --configuration Release
