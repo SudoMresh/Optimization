@@ -1,17 +1,17 @@
-name: .NET Core
+#name: .NET Core
 
-on: [push]
+#on: [push]
 
-jobs:
-  build:
+#jobs:
+#  build:
 
-    runs-on: windows-latest
+#    runs-on: windows-latest
 
-    steps:
-    - uses: actions/checkout@v2
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 4.7.2
-    - name: Build with dotnet
-      run: msbuild build --configuration Release
+#    steps:
+#    - uses: actions/checkout@v2
+#    - name: Setup .NET Core
+#      uses: actions/setup-dotnet@v1
+#      with:
+#        dotnet-version: 4.7.2
+#    - name: Build with dotnet
+#      run: msbuild build --configuration Release
