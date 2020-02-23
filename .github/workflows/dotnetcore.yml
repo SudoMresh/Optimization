@@ -14,4 +14,4 @@ jobs:
       with:
         dotnet-version: 4.7.2
     - name: Build with dotnet
-      run: dotnet build --configuration Release
+      run: msbuild build --configuration Release
