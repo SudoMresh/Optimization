@@ -9,6 +9,7 @@
 
     <TabControl Margin="0,0,2,-1">
         <TabItem Header="Бинарное дерево">
+            <Frame Source="View/BinarySearchPage.xaml"/>
         </TabItem>
         <TabItem Header="Взвешаные деревья">
         </TabItem>
