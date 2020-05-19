@@ -6,9 +6,67 @@
       xmlns:local="clr-namespace:Optimization.View"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="BinarySearchPage">
+      Title="BinarySearchPage"
+      Background="White">
 
     <Grid>
-        <TextBlock Text="Sample Text" VerticalAlignment="Center" HorizontalAlignment="Center" />
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <GroupBox Grid.Row="0" Header="Добавить">
+                <StackPanel VerticalAlignment="Center">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Column="0">
+                            <Label Content="Ключ:" Target="{Binding ElementName=AddKeyInput}" Margin="5 2"/>
+                            <TextBox x:Name="AddKeyInput" Text="{Binding AddKey}" Margin="10 2" Height="25"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="1">
+                            <Label Content="Значение:" Target="{Binding ElementName=AddValueInput}" Margin="5 2"/>
+                            <TextBox x:Name="AddValueInput" Text="{Binding AddValue}" Margin="10 2" Height="25"/>
+                        </StackPanel>
+                    </Grid>
+                    <Button Content="Добавить" Click="OnAddButtonClick" Background="White" Margin="10 2" Height="30"/>
+                </StackPanel>
+            </GroupBox>
+
+            <GroupBox Grid.Row="1" Header="Найти">
+                <StackPanel VerticalAlignment="Center">
+                    <Label Content="Ключ поиска:" Target="{Binding ElementName=SearchKeyInput}" Margin="5 2"/>
+                    <TextBox x:Name="SearchKeyInput" Text="{Binding SearchKey}" Margin="10 2" Height="25"/>
+                    <Button Content="Найти" Click="OnSearchButtonClick" Background="White" Margin="10 2" Height="30"/>
+                </StackPanel>
+            </GroupBox>
+
+            <GroupBox Grid.Row="2" Header="Удалить">
+                <StackPanel VerticalAlignment="Center">
+                    <Label Content="Ключ поиска:" Target="{Binding ElementName=RemoveKeyInput}" Margin="5 2"/>
+                    <TextBox x:Name="RemoveKeyInput" Text="{Binding RemoveKey}" Margin="10 2" Height="25"/>
+                    <Button Content="Удалить" Click="OnRemoveButtonClick" Background="White" Margin="10 2" Height="30"/>
+                </StackPanel>
+            </GroupBox>
+
+        </Grid>
+
+        <GroupBox Grid.Column="1" Header="Элементы дерева">
+            <ScrollViewer>
+                <ListView ItemsSource="{Binding Items}"/>
+            </ScrollViewer>
+        </GroupBox>
+        
     </Grid>
 </Page>

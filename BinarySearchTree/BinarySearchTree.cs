@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 
 namespace BinarySearchTree
 {
@@ -60,7 +61,24 @@ namespace BinarySearchTree
             _data = data;
         }
 
-        public override string ToString() => $"Key: {Key} | Value: {Value}]";
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+
+            sb.Append("Key: ").Append(Key).Append(" Value: ").Append(Value);
+
+            if (Left != null)
+            {
+                sb.Append(" (LeftKey: ").Append(Left.Key).Append(")");
+            }
+
+            if (Right != null)
+            {
+                sb.Append(" (RightKey: ").Append(Right.Key).Append(")");
+            }
+
+            return sb.ToString();
+        }
 
         #region Стандартные операции
         /// <summary>

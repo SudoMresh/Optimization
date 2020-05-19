@@ -103,5 +103,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BinarySearchTree\BinarySearchTree.csproj">
+      <Project>{95329038-4E93-4ED9-A3D1-2D57FBFE10DE}</Project>
+      <Name>BinarySearchTree</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

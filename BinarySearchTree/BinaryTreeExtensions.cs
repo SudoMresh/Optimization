@@ -10,7 +10,7 @@ namespace BinarySearchTree
         /// </summary>
         public static void AddRange<TKey, TData>(this BinarySearchTree<TKey, TData> tree, IDictionary<TKey, TData> data) where TKey : IComparable<TKey>
         {
-            if(data == null)
+            if (data == null)
             {
                 throw new ArgumentNullException(nameof(data), $"Входной параметр имеет значение null.");
             }
@@ -48,6 +48,25 @@ namespace BinarySearchTree
             }
 
             return false;
+        }
+
+        public static List<BinarySearchTree<TKey, TData>> ToList<TKey, TData>(this BinarySearchTree<TKey, TData> tree) where TKey : IComparable<TKey>
+        {
+            var result = new List<BinarySearchTree<TKey, TData>>();
+
+            ToList(tree, result);
+
+            return result;
+        }
+
+        private static void ToList<TKey, TData>(BinarySearchTree<TKey, TData> tree, List<BinarySearchTree<TKey, TData>> list) where TKey : IComparable<TKey>
+        {
+            if (tree == default) return;
+
+            list.Add(tree);
+
+            ToList(tree.Left, list);
+            ToList(tree.Right, list);
         }
     }
 }
