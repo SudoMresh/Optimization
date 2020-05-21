@@ -18,7 +18,9 @@
         <TabItem Header="Минимальные астовные деревья"/>
         <TabItem Header="Паросочитания"/>
         <TabItem Header="Иследование петель Петри"/>
-        <TabItem Header="Алгоритмы Дейкстры"/>
+        <TabItem Header="Алгоритмы Дейкстры">
+            <Frame Source="View/DijkstraPage.xaml"/>
+        </TabItem>
         <TabItem Header="Алгоритмы Флойда-Уоршола"/>
         <TabItem Header="Гамильтонов цикл"/>
     </TabControl>

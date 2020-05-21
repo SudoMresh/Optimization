@@ -58,6 +58,9 @@
     <Compile Include="View\BinarySearchPage.xaml.cs">
       <DependentUpon>BinarySearchPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\DijkstraPage.xaml.cs">
+      <DependentUpon>DijkstraPage.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -74,10 +77,12 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\DijkstraPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Modules\IModuleBase.cs" />
-    <Compile Include="Modules\ModulesFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -107,6 +112,10 @@
     <ProjectReference Include="..\BinarySearchTree\BinarySearchTree.csproj">
       <Project>{95329038-4E93-4ED9-A3D1-2D57FBFE10DE}</Project>
       <Name>BinarySearchTree</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DijkstraModule\DijkstraModule.csproj">
+      <Project>{1e786bd0-ff97-4116-bc96-3c441cffe1f9}</Project>
+      <Name>DijkstraModule</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
