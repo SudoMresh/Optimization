@@ -50,23 +50,47 @@ namespace BinarySearchTree
             return false;
         }
 
-        public static List<BinarySearchTree<TKey, TData>> ToList<TKey, TData>(this BinarySearchTree<TKey, TData> tree) where TKey : IComparable<TKey>
+        public static List<BinarySearchTree<TKey, TData>> ToList<TKey, TData>(this BinarySearchTree<TKey, TData> tree, TraversalType type = TraversalType.PreOrderTraversal) where TKey : IComparable<TKey>
         {
             var result = new List<BinarySearchTree<TKey, TData>>();
 
-            ToList(tree, result);
+            switch (type)
+            {
+                case TraversalType.PreOrderTraversal: ToListByPreOrderTraversal(tree, result); break;
+                case TraversalType.PostOrderTraversal: ToListByPostOrderTraversal(tree, result); break;
+                case TraversalType.InOrderTravers: ToListByInOrderTraversal(tree, result); break;
+            }
 
             return result;
         }
 
-        private static void ToList<TKey, TData>(BinarySearchTree<TKey, TData> tree, List<BinarySearchTree<TKey, TData>> list) where TKey : IComparable<TKey>
+        public static void ToListByPreOrderTraversal<TKey, TData>(BinarySearchTree<TKey, TData> tree, List<BinarySearchTree<TKey, TData>> outItemsList) where TKey : IComparable<TKey>
         {
             if (tree == default) return;
 
-            list.Add(tree);
+            outItemsList.Add(tree);
 
-            ToList(tree.Left, list);
-            ToList(tree.Right, list);
+            ToListByPreOrderTraversal(tree.Left, outItemsList);
+            ToListByPreOrderTraversal(tree.Right, outItemsList);
+        }
+
+        public static void ToListByPostOrderTraversal<TKey, TData>(BinarySearchTree<TKey, TData> tree, List<BinarySearchTree<TKey, TData>> outItemsList) where TKey : IComparable<TKey>
+        {
+            if (tree == default) return;
+
+            ToListByPostOrderTraversal(tree.Left, outItemsList);
+            ToListByPostOrderTraversal(tree.Right, outItemsList);
+
+            outItemsList.Add(tree);
+        }
+
+        public static void ToListByInOrderTraversal<TKey, TData>(BinarySearchTree<TKey, TData> tree, List<BinarySearchTree<TKey, TData>> outItemsList) where TKey : IComparable<TKey>
+        {
+            if (tree == default) return;
+
+            ToListByInOrderTraversal(tree.Left, outItemsList);
+            outItemsList.Add(tree);
+            ToListByInOrderTraversal(tree.Right, outItemsList);
         }
     }
 }

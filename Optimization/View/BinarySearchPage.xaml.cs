@@ -1,6 +1,8 @@
 ﻿using BinarySearchTree;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -20,7 +22,6 @@ namespace Optimization.View
 
         public ObservableCollection<BinarySearchTree<int, string>> Items { get; private set; }
 
-
         public BinarySearchPage()
         {
             DataContext = this;
@@ -37,13 +38,15 @@ namespace Optimization.View
             });
 
             InitializeComponent();
-
             UpdateItemsList();
         }
 
+        public void OnTraversTypeChanged(object sender, SelectionChangedEventArgs e) => UpdateItemsList();
+
         private void UpdateItemsList()
         {
-            var elements = _tree.ToList();
+            var traversType = (TraversalType)TraversTypeCB.SelectedIndex;
+            var elements = _tree.ToList(traversType);
 
             Items.Clear();
 

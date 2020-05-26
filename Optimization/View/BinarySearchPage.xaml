@@ -7,7 +7,8 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="BinarySearchPage"
-      Background="White">
+      Background="White"
+      FontFamily="Verdana">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -63,10 +64,24 @@
         </Grid>
 
         <GroupBox Grid.Column="1" Header="Элементы дерева">
-            <ScrollViewer>
-                <ListView ItemsSource="{Binding Items}"/>
-            </ScrollViewer>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <ComboBox x:Name="TraversTypeCB" Grid.Row="0" SelectionChanged="OnTraversTypeChanged" SelectedIndex="0" Background="White">
+                    <ComboBoxItem Content="Префиксный обход"/>
+                    <ComboBoxItem Content="Постфиксный обход"/>
+                    <ComboBoxItem Content="Инфиксный обход"/>
+                </ComboBox>
+                
+                <ScrollViewer Grid.Row="2">
+                    <ListView ItemsSource="{Binding Items}"/>
+                </ScrollViewer>
+            </Grid>
         </GroupBox>
-        
+
     </Grid>
 </Page>
