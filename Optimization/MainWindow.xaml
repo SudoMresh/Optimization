@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Optimization"
         mc:Ignorable="d"
-        Title="Optimization" Height="450" Width="800">
+        Title="Optimization" Height="550" Width="800">
 
     <TabControl Margin="0,0,2,-1">
         <TabItem Header="Бинарное дерево">
@@ -21,7 +21,9 @@
         <TabItem Header="Алгоритмы Дейкстры">
             <Frame Source="View/DijkstraPage.xaml"/>
         </TabItem>
-        <TabItem Header="Алгоритмы Флойда-Уоршола"/>
+        <TabItem Header="Алгоритмы Флойда-Уоршелла">
+            <Frame Source="View/FloydWarshallPage.xaml"/>
+        </TabItem>
         <TabItem Header="Гамильтонов цикл"/>
     </TabControl>
 </Window>
