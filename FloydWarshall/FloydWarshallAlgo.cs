@@ -12,21 +12,27 @@ namespace FloydWarshall
         int[,] parent;
         private bool isCreated;
 
-        public FloydWarshallAlgo() {
+        public FloydWarshallAlgo()
+        {
 
             //this.distance = new int[,] {
-            //    { INF,   2,   1,   INF,   INF,   INF},
-            //{ INF, INF,   3,   3,   INF,   INF},
-            //{ INF, INF, INF,   INF,   1,   INF},
-            //{ INF, INF, INF, INF,   INF, 2},
-            //{ INF, INF, INF, 2,   INF,   5},
-            //{ INF, INF, INF, INF, INF, INF}
+            //    { INF,   1,   INF,   INF,   2},
+            //{ INF, INF,   INF,   2,   INF},
+            //{ 3, INF, INF,  2,   1},
+            //{ INF, INF, INF, INF,   INF},
+            //{ INF, 3, INF, INF,   INF}
+            ////{ INF, INF, INF, INF, INF, INF}
             //};
         }
 
-        public bool IsCreated() 
+        public bool IsCreated()
         {
             return isCreated;
+        }
+
+        public int GetMatrixSize()
+        {
+            return this.distance.GetLength(0);
         }
 
         public void CreateMatrix(int size)
@@ -88,10 +94,15 @@ namespace FloydWarshall
             while (point != from)
             {
                 point = parent[from, point];
+
+                if (point == -1) { break; }
+
                 path.Add(point);
             }
 
             path.Reverse();
+
+            if (path.Count == 0 || path[0] != from) { return null; }
 
             return path;
         }
@@ -116,7 +127,7 @@ namespace FloydWarshall
                             distance[i, j] = distance[i, k] + distance[k, j];
                             parent[i, j] = parent[k, j];
                         }
-                       
+
                     }
                 }
             }
@@ -138,5 +149,5 @@ namespace FloydWarshall
 
         }
 
-     }
+    }
 }

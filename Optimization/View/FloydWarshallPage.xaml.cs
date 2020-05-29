@@ -17,6 +17,7 @@ namespace Optimization.View
             InitializeComponent();
            
             this.algorithm = new FloydWarshallAlgo();
+           // RefreshResultTextWithMatrix();
         }
 
 
@@ -116,12 +117,14 @@ namespace Optimization.View
             {
                 MessageBox.Show("Введите начальную и конечную вершины для поиска пути!"); return;
             }
-            int size = Int32.Parse(CountPoint.Text);
+            int size = this.algorithm.GetMatrixSize();
 
             if (startVertexPath == finishVertexPath) { MessageBox.Show("Вершины должны быть разные."); return; }
             if (startVertexPath > size - 1 || finishVertexPath > size - 1 || startVertexPath < 0 || finishVertexPath < 0) { MessageBox.Show("Предупреждение!\nОбратите внимание, что индексация для вершин начинает с 0 и индекс не должен быть больше количества вершин!"); return; }
             
             List<int> path = this.algorithm.FindPath(startVertexPath, finishVertexPath);
+
+            if (path == null) { this.AppendResultText("Путь не найден!"); return; }
             
             this.AppendResultText("Путь:\n" + string.Join(" -> ", path.ToArray()));
         }
