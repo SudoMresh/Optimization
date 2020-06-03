@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DijkstraModule;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -65,6 +66,18 @@ namespace Dijkstra
             {
                 v1.AddEdge(v2, weight);
                 v2.AddEdge(v1, weight);
+            }
+            else
+            {
+                NotFoundEdgeExeption exeption = new NotFoundEdgeExeption();
+
+                if (v1 == null)
+                    exeption.NotFoundFirstEdge = firstName;
+
+                if (v2 == null)
+                    exeption.NotFoundSecondEdge = secondName;
+
+                throw exeption;
             }
         }
     }
