@@ -79,6 +79,9 @@
     <Compile Include="View\FloydWarshallPage.xaml.cs">
       <DependentUpon>FloydWarshallPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\PetriNetwork.xaml.cs">
+      <DependentUpon>PetriNetwork.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\WeightedTreePage.xaml.cs">
       <DependentUpon>WeightedTreePage.xaml</DependentUpon>
     </Compile>
@@ -105,6 +108,10 @@
     <Page Include="View\FloydWarshallPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\PetriNetwork.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\WeightedTreePage.xaml">
       <SubType>Designer</SubType>
@@ -149,6 +156,10 @@
     <ProjectReference Include="..\FloydWarshall\FloydWarshall.csproj">
       <Project>{d4c56c30-7d58-43e5-b030-0c813e842355}</Project>
       <Name>FloydWarshall</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NetworkPetri\NetworkPetri.csproj">
+      <Project>{654A3A19-771E-4DF3-8FD3-8BE7B1CECBD9}</Project>
+      <Name>NetworkPetri</Name>
     </ProjectReference>
     <ProjectReference Include="..\WeightedTree\WeightedTree.csproj">
       <Project>{353DC7F8-6DE2-4213-B19E-830C903F3C7C}</Project>

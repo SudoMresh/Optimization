@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DijkstraModule", "DijkstraM
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FloydWarshall", "FloydWarshall\FloydWarshall.csproj", "{D4C56C30-7D58-43E5-B030-0C813E842355}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeightedTree", "WeightedTree\WeightedTree.csproj", "{353DC7F8-6DE2-4213-B19E-830C903F3C7C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeightedTree", "WeightedTree\WeightedTree.csproj", "{353DC7F8-6DE2-4213-B19E-830C903F3C7C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetworkPetri", "NetworkPetri\NetworkPetri.csproj", "{654A3A19-771E-4DF3-8FD3-8BE7B1CECBD9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{353DC7F8-6DE2-4213-B19E-830C903F3C7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{353DC7F8-6DE2-4213-B19E-830C903F3C7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{353DC7F8-6DE2-4213-B19E-830C903F3C7C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{654A3A19-771E-4DF3-8FD3-8BE7B1CECBD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{654A3A19-771E-4DF3-8FD3-8BE7B1CECBD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{654A3A19-771E-4DF3-8FD3-8BE7B1CECBD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{654A3A19-771E-4DF3-8FD3-8BE7B1CECBD9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -14,11 +14,12 @@
         <TabItem Header="Взвешаные деревья">
             <Frame Source="View/WeightedTreePage.xaml"/>
         </TabItem>
-        <TabItem Header="Обход бинарных деревьев"/>
         <TabItem Header="Астовные деревья"/>
         <TabItem Header="Минимальные астовные деревья"/>
         <TabItem Header="Паросочитания"/>
-        <TabItem Header="Иследование петель Петри"/>
+        <TabItem Header="Иследование петель Петри">
+            <Frame Source="View/PetriNetwork.xaml"/>
+        </TabItem>
         <TabItem Header="Алгоритм Дейкстры">
             <Frame Source="View/DijkstraPage.xaml"/>
         </TabItem>
