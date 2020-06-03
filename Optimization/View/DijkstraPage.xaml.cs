@@ -57,6 +57,7 @@ namespace Optimization.View
                 dijkstraModule = new Dijkstra.DijkstraModule(graph);
                 StartSolveVertexName = AddStartSolveVertex.Text;
                 FinishSolveVertexName = AddFinishSolveVertex.Text;
+                Path.Add($"\nКороткий путь:\n");
                 Path.Add(dijkstraModule.FindShortestPath(StartSolveVertexName, FinishSolveVertexName));
                 path.ItemsSource = Path;
             }
