@@ -19,6 +19,7 @@
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
+                <RowDefinition/>
             </Grid.RowDefinitions>
 
             <GroupBox Grid.Row="0" Header="Добавить вершины">
@@ -85,6 +86,25 @@
                         </StackPanel>
                     </Grid>
                     <Button Content="Решить" Click="OnSolveButtonClick" Background="White" Margin="10 2" Height="30"/>
+                </StackPanel>
+            </GroupBox>
+
+            <GroupBox Grid.Row="3" Header="Работа с файлами">
+                <StackPanel VerticalAlignment="Center">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Column="0">
+                            <Button Content="Загрузить с файла" Click="OnReadFromFileClick" Background="White" Margin="10 2" Height="30"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="1">
+                            <Button Content="Сохранить в файл" Click="OnSaveToFileClick" Background="White" Margin="10 2" Height="30"/>
+                        </StackPanel>
+                    </Grid>
                 </StackPanel>
             </GroupBox>
 

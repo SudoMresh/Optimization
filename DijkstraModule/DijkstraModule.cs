@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DijkstraModule;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -83,6 +84,22 @@ namespace Dijkstra
         /// <returns></returns>
         public string FindShortestPath(string startname, string finishName)
         {
+            var foundStart = graph.FindVertex(startname);
+            var foundEnd = graph.FindVertex(finishName);
+
+            if (foundStart == null || foundEnd == null)
+            {
+                NotFoundEdgeExeption exeption = new NotFoundEdgeExeption();
+
+                if (foundStart == null)
+                    exeption.NotFoundFirstEdge = startname;
+
+                if (foundEnd == null)
+                    exeption.NotFoundSecondEdge = finishName;
+
+                throw exeption;
+            }
+
             return FindShortestPath(graph.FindVertex(startname), graph.FindVertex(finishName));
         }
 
