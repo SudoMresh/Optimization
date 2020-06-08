@@ -14,9 +14,9 @@
         <TabItem Header="Взвешаные деревья">
             <Frame Source="View/WeightedTreePage.xaml"/>
         </TabItem>
-        <TabItem Header="Астовные деревья"/>
-        <TabItem Header="Минимальные астовные деревья"/>
-        <TabItem Header="Паросочитания"/>
+        <!--<TabItem Header="Остовные деревья"/>
+        <TabItem Header="Минимальные остовные деревья"/>
+        <TabItem Header="Паросочитания"/>-->
         <TabItem Header="Иследование петель Петри">
             <Frame Source="View/PetriNetwork.xaml"/>
         </TabItem>
@@ -26,6 +26,6 @@
         <TabItem Header="Алгоритмы Флойда-Уоршелла">
             <Frame Source="View/FloydWarshallPage.xaml"/>
         </TabItem>
-        <TabItem Header="Гамильтонов цикл"/>
+        <!--<TabItem Header="Гамильтонов цикл"/>-->
     </TabControl>
 </Window>
