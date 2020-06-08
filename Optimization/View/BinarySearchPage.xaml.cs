@@ -1,5 +1,4 @@
 ﻿using BinarySearchTree;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -34,7 +33,6 @@ namespace Optimization.View
                 {4, "Some value for key 4" },
                 {15, "Some value for key 15" },
                 {1, "Some value for key 1" },
-
             });
 
             InitializeComponent();
@@ -79,13 +77,13 @@ namespace Optimization.View
                 return;
             }
 
-            _tree.Add(AddKey, AddValue);
+            BinarySearchTree<int, string>.Add(ref _tree, new BinarySearchTree<int, string>(AddKey, AddValue));
             UpdateItemsList();
         }
 
         private void OnRemoveButtonClick(object sender, RoutedEventArgs eventArgs)
         {
-            _tree.Remove(RemoveKey);
+            BinarySearchTree<int, string>.Remove(ref _tree, RemoveKey);
             UpdateItemsList();
         }
     }

@@ -1,9 +1,5 @@
 ﻿using DijkstraModule;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Dijkstra
 {
@@ -27,7 +23,7 @@ namespace Dijkstra
         /// <summary>
         /// 
         /// </summary>
-        void InitInfo()
+        private void InitInfo()
         {
             infos = new List<GraphVertexInfo>();
 
@@ -42,7 +38,7 @@ namespace Dijkstra
         /// </summary>
         /// <param name="vertex"></param>
         /// <returns></returns>
-        GraphVertexInfo GetGraphVertexInfo(GraphVertex vertex)
+        private GraphVertexInfo GetGraphVertexInfo(GraphVertex vertex)
         {
             foreach (var item in infos)
             {
@@ -131,7 +127,7 @@ namespace Dijkstra
         /// 
         /// </summary>
         /// <param name="info"></param>
-        void SetSumToNextVertex(GraphVertexInfo info)
+        private void SetSumToNextVertex(GraphVertexInfo info)
         {
             info.IsUnvisited = false;
 
@@ -154,7 +150,7 @@ namespace Dijkstra
         /// <param name="startVertex"></param>
         /// <param name="endVertex"></param>
         /// <returns></returns>
-        string GetPath(GraphVertex startVertex, GraphVertex endVertex)
+        private string GetPath(GraphVertex startVertex, GraphVertex endVertex)
         {
             var path = endVertex.ToString();
 
