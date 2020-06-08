@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Dijkstra
+﻿namespace Dijkstra
 {
     /// <summary>
     /// 
@@ -15,7 +9,7 @@ namespace Dijkstra
         /// 
         /// </summary>
         public GraphVertex ConnectedVertex { get; }
-        
+
         /// <summary>
         /// 
         /// </summary>

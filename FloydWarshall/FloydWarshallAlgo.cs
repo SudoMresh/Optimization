@@ -8,8 +8,8 @@ namespace FloydWarshall
     {
 
         public const int INF = 10000;
-        int[,] distance;
-        int[,] parent;
+        private int[,] distance;
+        private int[,] parent;
         private bool isCreated;
 
         public FloydWarshallAlgo()

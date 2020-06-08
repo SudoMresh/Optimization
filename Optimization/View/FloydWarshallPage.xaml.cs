@@ -1,23 +1,21 @@
-﻿using System;
+﻿using FloydWarshall;
+using System;
 using System.Collections.Generic;
-using System.Data.SqlTypes;
 using System.Windows;
 using System.Windows.Controls;
-using FloydWarshall;
 
 namespace Optimization.View
 {
     public partial class FloydWarshallPage : Page
     {
-
-        FloydWarshallAlgo algorithm;
+        private FloydWarshallAlgo algorithm;
 
         public FloydWarshallPage()
         {
             InitializeComponent();
-           
+
             this.algorithm = new FloydWarshallAlgo();
-           // RefreshResultTextWithMatrix();
+            // RefreshResultTextWithMatrix();
         }
 
 
@@ -34,7 +32,7 @@ namespace Optimization.View
             this.algorithm.CreateMatrix(size);
 
             this.RefreshResultTextWithMatrix();
-            
+
         }
 
         private void RefreshResultTextWithMatrix()
@@ -52,7 +50,7 @@ namespace Optimization.View
         private void HandleAddVertexClick(object sender, RoutedEventArgs e)
         {
             if (!this.algorithm.IsCreated()) { MessageBox.Show("Матрица расстояний не создана!\nПопробуйте ввести количество вершин и нажать кнопку Создать матрицу расстояний."); return; }
-            
+
             if (CountPoint.Text == "")
             {
                 MessageBox.Show("Введите количество вершин!"); return;
@@ -68,7 +66,7 @@ namespace Optimization.View
 
             if (FinishVertex.Text == "")
             {
-               MessageBox.Show("Введите конечную вершину!"); return;
+                MessageBox.Show("Введите конечную вершину!"); return;
             }
             int finishVertex = Int32.Parse(FinishVertex.Text);
 
@@ -113,7 +111,7 @@ namespace Optimization.View
             }
             int finishVertexPath = Int32.Parse(AddFinishSolveVertex.Text);
 
-            if (AddStartSolveVertex.Text == "" && AddFinishSolveVertex.Text  == "")
+            if (AddStartSolveVertex.Text == "" && AddFinishSolveVertex.Text == "")
             {
                 MessageBox.Show("Введите начальную и конечную вершины для поиска пути!"); return;
             }
@@ -121,11 +119,11 @@ namespace Optimization.View
 
             if (startVertexPath == finishVertexPath) { MessageBox.Show("Вершины должны быть разные."); return; }
             if (startVertexPath > size - 1 || finishVertexPath > size - 1 || startVertexPath < 0 || finishVertexPath < 0) { MessageBox.Show("Предупреждение!\nОбратите внимание, что индексация для вершин начинает с 0 и индекс не должен быть больше количества вершин!"); return; }
-            
+
             List<int> path = this.algorithm.FindPath(startVertexPath, finishVertexPath);
 
             if (path == null) { this.AppendResultText("Путь не найден!"); return; }
-            
+
             this.AppendResultText("Путь:\n" + string.Join(" -> ", path.ToArray()));
         }
     }
