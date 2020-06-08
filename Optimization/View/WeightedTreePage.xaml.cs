@@ -36,7 +36,7 @@ namespace Optimization.View
         private static string currDir = Environment.CurrentDirectory.ToString();
         private string FilePath;
         private bool emptyData = true;
-        private Window enterDataWindow = new Window();
+        private Window enterDataWindow = null;
 
         private void Form_SizeChanged(object sender, SizeChangedEventArgs e)
         {
