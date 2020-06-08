@@ -5,7 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Optimization"
         mc:Ignorable="d"
-        ResizeMode="NoResize"
         Title="Optimization" Height="550" Width="800">
 
     <TabControl Margin="0,0,2,-1">
