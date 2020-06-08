@@ -17,7 +17,7 @@
         <!--<TabItem Header="Остовные деревья"/>
         <TabItem Header="Минимальные остовные деревья"/>
         <TabItem Header="Паросочитания"/>-->
-        <TabItem Header="Иследование петель Петри">
+        <TabItem Header="Сети Петри">
             <Frame Source="View/PetriNetwork.xaml"/>
         </TabItem>
         <TabItem Header="Алгоритм Дейкстры">
