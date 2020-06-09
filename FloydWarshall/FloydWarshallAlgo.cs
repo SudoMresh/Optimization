@@ -11,6 +11,7 @@ namespace FloydWarshall
         private int[,] distance;
         private int[,] parent;
         private bool isCreated;
+        private bool isHaveVertex;
 
         public FloydWarshallAlgo()
         {
@@ -28,6 +29,11 @@ namespace FloydWarshall
         public bool IsCreated()
         {
             return isCreated;
+        }
+
+        public bool IsHaveVertex()
+        {
+            return isHaveVertex;
         }
 
         public int GetMatrixSize()
@@ -50,6 +56,8 @@ namespace FloydWarshall
         public void AddVertex(int i, int j, int weight)
         {
             this.distance[i, j] = weight;
+
+            this.isHaveVertex = true;
         }
 
         private static String MatrixToString(int[,] matrix)
