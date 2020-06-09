@@ -1,4 +1,5 @@
 ﻿using DijkstraModule;
+using System;
 using System.Collections.Generic;
 
 namespace Dijkstra
@@ -152,15 +153,42 @@ namespace Dijkstra
         /// <returns></returns>
         private string GetPath(GraphVertex startVertex, GraphVertex endVertex)
         {
-            var path = endVertex.ToString();
-
-            while (startVertex != endVertex)
+            try
             {
-                endVertex = GetGraphVertexInfo(endVertex).PreviousVertex;
-                path = endVertex.ToString() + "->" + path;
-            }
+                var path = endVertex.ToString();
+                double sum = 0;
 
-            return path;
+                while (startVertex != endVertex)
+                {
+                    double weight = 0;
+                    string nameOfPrev = endVertex.Name;
+                    endVertex = GetGraphVertexInfo(endVertex).PreviousVertex;
+
+                    for (int i = 0; i < endVertex.Edges.Count; ++i)
+                    {
+                        if (nameOfPrev == endVertex.Edges[i].ConnectedVertex.Name)
+                        {
+                            weight = endVertex.Edges[i].EdgeWeight;
+                            sum += weight;
+                            break;
+                        }
+                    }
+
+                    path = $"{endVertex.ToString()} ({weight}) -> {path}";
+                }
+
+                return path + $"\n\nВес общего пути: {sum}";
+            }
+            catch (Exception ex)
+            {
+                NotFoundPathExeption exeption = new NotFoundPathExeption
+                {
+                    StartVertex = startVertex.Name,
+                    EndVertex = endVertex.Name
+                };
+
+                throw exeption;
+            }
         }
     }
 }

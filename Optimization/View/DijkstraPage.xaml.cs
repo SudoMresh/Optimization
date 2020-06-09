@@ -1,6 +1,7 @@
 ﻿using Dijkstra;
 using DijkstraModule;
 using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
@@ -60,34 +61,53 @@ namespace Optimization.View
                 Path.Add(dijkstraModule.FindShortestPath(StartSolveVertexName, FinishSolveVertexName));
                 path.ItemsSource = Path;
             }
+            catch (NotFoundPathExeption ex)
+            {
+                MessageBox.Show(ex.ShowError());
+            }
             catch (NotFoundEdgeExeption ex)
             {
                 MessageBox.Show(ex.ShowError());
             }
         }
+
+        public void OnNewGraphClick(object sender, RoutedEventArgs e)
+        {
+            GC.SuppressFinalize(graph);
+            graph = new Graph();
+            Path.Clear();
+        }
+
         public void OnAddEdgeButtonClick(object sender, RoutedEventArgs e)
         {
             StartVertexName = AddStartVertex.Text;
             FinishVertexName = AddFinishVertex.Text;
 
-            try
+            if (StartVertexName == FinishVertexName)
             {
-                if (double.TryParse(WeightEdgeEl.Text, out double parsedVal))
-                {
-                    WeightEdge = parsedVal;
-                    graph.AddEdge(StartVertexName, FinishVertexName, WeightEdge);
-                    Path.Add(string.Format("Добавлен путь с вершины {0} в вершину {1} с весом {2}", StartVertexName, FinishVertexName, WeightEdge));
-                    _addedEdges += $"{StartVertexName} {FinishVertexName} {WeightEdge} \n";
-                    path.ItemsSource = Path;
-                }
-                else
-                {
-                    MessageBox.Show("Вы ввели не коректный вес.\nПожайлуста проверте правильность введеных данных");
-                }
+                MessageBox.Show("Запрещено создавать петли в графе.");
             }
-            catch (NotFoundEdgeExeption ex)
+            else
             {
-                MessageBox.Show(ex.ShowError());
+                try
+                {
+                    if (double.TryParse(WeightEdgeEl.Text, out double parsedVal))
+                    {
+                        WeightEdge = parsedVal;
+                        graph.AddEdge(StartVertexName, FinishVertexName, WeightEdge);
+                        Path.Add(string.Format("Добавлен путь с вершины {0} в вершину {1} с весом {2}", StartVertexName, FinishVertexName, WeightEdge));
+                        _addedEdges += $"{StartVertexName} {FinishVertexName} {WeightEdge} \n";
+                        path.ItemsSource = Path;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Вы ввели не коректный вес.\nПожайлуста проверте правильность введеных данных");
+                    }
+                }
+                catch (NotFoundEdgeExeption ex)
+                {
+                    MessageBox.Show(ex.ShowError());
+                }
             }
         }
 
