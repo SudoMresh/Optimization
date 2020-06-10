@@ -11,7 +11,7 @@
         <TabItem Header="Бинарное дерево">
             <Frame Source="View/BinarySearchPage.xaml"/>
         </TabItem>
-        <TabItem Header="Взвешеные деревья">
+        <TabItem Header="Взвешенные деревья">
             <Frame Source="View/WeightedTreePage.xaml"/>
         </TabItem>
         <!--<TabItem Header="Остовные деревья"/>
